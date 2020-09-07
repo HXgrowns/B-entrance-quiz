@@ -25,4 +25,11 @@ public class StudentApiTest {
                 .andExpect(jsonPath("$[0].name", is("shenleqi")));
     }
 
+    @Test
+    public void shouldFindAllStudentGroupBy() throws Exception {
+        mockMvc.perform(get("/student/group"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$['Team 3'][0].name", is("xuhuihui")));
+    }
+
 }
